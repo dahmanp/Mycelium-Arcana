@@ -10,7 +10,7 @@ public class GameStartTrigger : MonoBehaviourPun
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Holothurian") || other.gameObject.CompareTag("Etori") || other.gameObject.CompareTag("Velkivon") || other.gameObject.CompareTag("Avem"))
         {
             if (other.gameObject.name == "Holothurian(Clone)")
             {

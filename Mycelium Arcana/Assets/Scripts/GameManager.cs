@@ -44,15 +44,15 @@ public class GameManager : MonoBehaviourPun
     void SpawnPlayer()
     {
         GameObject playerObj;
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 0)
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
         {
             playerObj = PhotonNetwork.Instantiate(summer, spawnPoints[0].position, Quaternion.identity);
         }
-        else if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
         {
             playerObj = PhotonNetwork.Instantiate(fall, spawnPoints[1].position, Quaternion.identity);
         }
-        else if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 3)
         {
             playerObj = PhotonNetwork.Instantiate(winter, spawnPoints[2].position, Quaternion.identity);
         }

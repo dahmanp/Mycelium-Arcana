@@ -23,7 +23,7 @@ public class Leaderboard : MonoBehaviour
     {
         GetLeaderboardRequest getLeaderboardRequest = new GetLeaderboardRequest
         {
-            StatisticName = "FastestTime",
+            StatisticName = "MostDMG",
             MaxResultsCount = 10
         };
 
@@ -76,7 +76,7 @@ public class Leaderboard : MonoBehaviour
             {
                 Statistics = new List<StatisticUpdate>
                     {
-                        new StatisticUpdate { StatisticName = "FastestTime", Value = newScore },
+                        new StatisticUpdate { StatisticName = "MostDMG", Value = newScore },
                     }
             },
                 result => { Debug.Log("User statistics updated"); },

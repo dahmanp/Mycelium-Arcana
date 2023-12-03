@@ -8,6 +8,7 @@ TagManager:
   - Avem
   - Holothurian
   - Velkivon
+  - Enemy
   layers:
   - Default
   - TransparentFX

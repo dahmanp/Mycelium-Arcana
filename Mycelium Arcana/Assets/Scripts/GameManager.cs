@@ -12,6 +12,13 @@ public class GameManager : MonoBehaviourPun
     public string winter;
     public string spring;
 
+    [Header("Misc")]
+    public GameObject fallKey;
+    public GameObject winterKey;
+    public GameObject springKey;
+
+    public int keyAmt;
+
     public Transform[] spawnPoints;
     public float respawnTime;
     private int playersInGame;
@@ -19,12 +26,43 @@ public class GameManager : MonoBehaviourPun
 
     public GameObject boss;
     public GameObject winBackground;
+    public int totalKeys;
 
     // instance
     public static GameManager instance;
     void Awake()
     {
         instance = this;
+    }
+
+    [PunRPC]
+    void setKeys()
+    {
+        SpriteRenderer f = fallKey.GetComponent<SpriteRenderer>();
+        SpriteRenderer w = winterKey.GetComponent<SpriteRenderer>();
+        SpriteRenderer s = springKey.GetComponent<SpriteRenderer>();
+
+        if (PhotonNetwork.PlayerList.Length == 1)
+        {
+            Debug.Log("test1");
+            totalKeys = 3;
+            f.enabled = true;
+            w.enabled = true;
+            s.enabled = true;
+        }
+        else if (PhotonNetwork.PlayerList.Length == 2)
+        {
+            Debug.Log("test2");
+            totalKeys = 2;
+            w.enabled = true;
+            s.enabled = true;
+        }
+        else if (PhotonNetwork.PlayerList.Length == 3)
+        {
+            Debug.Log("test3");
+            totalKeys = 1;
+            s.enabled = true;
+        }
     }
 
     [PunRPC]
@@ -39,6 +77,7 @@ public class GameManager : MonoBehaviourPun
     {
         players = new PlayerController[PhotonNetwork.PlayerList.Length];
         photonView.RPC("ImInGame", RpcTarget.AllBuffered);
+        Invoke("setKeys", 5.0f);
     }
 
     void SpawnPlayer()
@@ -61,9 +100,17 @@ public class GameManager : MonoBehaviourPun
             playerObj = PhotonNetwork.Instantiate(spring, spawnPoints[3].position, Quaternion.identity);
         }
 
-        //playerObj = PhotonNetwork.Instantiate(summer, spawnPoints[0].position, Quaternion.identity);
-        // initialize the player
         playerObj.GetComponent<PhotonView>().RPC("Initialize", RpcTarget.All, PhotonNetwork.LocalPlayer);
+
+    }
+
+    [PunRPC]
+    void Update()
+    {
+        if (totalKeys == 4)
+        {
+            PhotonNetwork.LoadLevel("Boss");
+        }
 
     }
 
@@ -77,7 +124,6 @@ public class GameManager : MonoBehaviourPun
     {
         if (boss.GetComponent<Enemy>().isdead == true)
         {
-            Debug.Log("Works");
             SetWinText();
             Invoke("GoBackToMenu", 3);
         }

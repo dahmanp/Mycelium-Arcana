@@ -30,6 +30,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public RectTransform roomListContainer;
     public GameObject roomButtonPrefab;
 
+    private int partyNum;
     private List<GameObject> roomButtons = new List<GameObject>();
     private List<RoomInfo> roomList = new List<RoomInfo>();
 
@@ -118,6 +119,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
         foreach(Player player in PhotonNetwork.PlayerList)
         {
             playerText[i].text = player.NickName;
+            partyNum++;
             i++;
         }
 
@@ -180,7 +182,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
             button.SetActive(true);
             // set the room name and player count texts
             button.transform.Find("RoomNameText").GetComponent<TextMeshProUGUI>().text = roomList[x].Name;
-            button.transform.Find("PlayerCountText").GetComponent<TextMeshProUGUI>().text = roomList[x].PlayerCount + " / " + roomList[x].MaxPlayers;
+            button.transform.Find("PlayerCountText").GetComponent<TextMeshProUGUI>().text = partyNum + " / 4";
 
             // set the button OnClick event
             Button buttonComp = button.GetComponent<Button>();

@@ -21,13 +21,16 @@ public class PlayerController : MonoBehaviourPun
     public int damage;
     public float attackRange;
     public float attackRate;
+    public int enemiesKilled;
+    public int totalDmgDealt;
     private float lastAttackTime;
 
     [Header("Components")]
     public Rigidbody2D rig;
     public Player photonPlayer;
     public SpriteRenderer sr;
-    public Animator weaponAnim;
+    //public Animator weaponAnim;
+    public bool hasKey;
 
     [Header("Audio")]
     public AudioSource coinA;
@@ -57,7 +60,7 @@ public class PlayerController : MonoBehaviourPun
             rig.isKinematic = true;
 
         GameManager.instance.players[id - 1] = this;
-        //headerInfo.Initialize(player.NickName, maxHp);
+        headerInfo.Initialize(player.NickName, maxHp);
     }
 
     void Update()
@@ -71,12 +74,12 @@ public class PlayerController : MonoBehaviourPun
         float mouseX = (Screen.width / 2) - Input.mousePosition.x;
         if (mouseX < 0)
         {
-            weaponAnim.transform.parent.localScale = new Vector3(3, 3, 3);
+            //weaponAnim.transform.parent.localScale = new Vector3(3, 3, 3);
             //transform.localScale = new Vector3(-3, 3, 3);
         }
         else
         {
-            weaponAnim.transform.parent.localScale = new Vector3(-3, 3, 3);
+            //weaponAnim.transform.parent.localScale = new Vector3(-3, 3, 3);
             //transform.localScale = new Vector3(3, 3, 3);
         }
     }
@@ -97,13 +100,18 @@ public class PlayerController : MonoBehaviourPun
         Vector3 dir = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
         RaycastHit2D hit = Physics2D.Raycast(transform.position + dir, dir, attackRange);
 
-        swordA.Play();
+        //swordA.Play();
         if (hit.collider != null && hit.collider.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = hit.collider.GetComponent<Enemy>();
             enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, damage);
+            totalDmgDealt += damage;
+            if (enemy.isdead == true)
+            {
+                enemiesKilled++;
+            }
         }
-        weaponAnim.SetTrigger("Attack");
+        //weaponAnim.SetTrigger("Attack");
     }
 
     [PunRPC]
@@ -111,7 +119,7 @@ public class PlayerController : MonoBehaviourPun
     {
         curHp -= damage;
         headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, curHp);
-        dmgA.Play();
+        //dmgA.Play();
         if (curHp <= 0)
             Die();
         else
@@ -128,7 +136,7 @@ public class PlayerController : MonoBehaviourPun
 
     void Die()
     {
-        die.Play();
+        //die.Play();
         dead = true;
         rig.isKinematic = true;
         transform.position = new Vector3(0, 99, 0);
@@ -139,7 +147,7 @@ public class PlayerController : MonoBehaviourPun
     IEnumerator Spawn(Vector3 spawnPos, float timeToSpawn)
     {
         yield return new WaitForSeconds(timeToSpawn);
-        spawn.Play();
+        //spawn.Play();
         dead = false;
         transform.position = spawnPos;
         curHp = maxHp;
@@ -150,7 +158,7 @@ public class PlayerController : MonoBehaviourPun
     [PunRPC]
     void Heal(int amountToHeal)
     {
-        healthA.Play();
+        //healthA.Play();
         curHp = Mathf.Clamp(curHp + amountToHeal, 0, maxHp);
         headerInfo.photonView.RPC("UpdateHealthBar", RpcTarget.All, curHp);
     }
@@ -158,7 +166,7 @@ public class PlayerController : MonoBehaviourPun
     [PunRPC]
     void GiveKey(int keysToGive)
     {
-        keyA.Play();
+        //keyA.Play();
         keys += keysToGive;
         //GameUI.instance.UpdateKeysText(keys);
     }

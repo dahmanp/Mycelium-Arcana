@@ -52,6 +52,11 @@ MonoBehaviour:
   - Start
   - Update
   - setKeys
+  - Magic
+  - deactivate1
+  - deactivate2
+  - deactivate3
+  - YESButton
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

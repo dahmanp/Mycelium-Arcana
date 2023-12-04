@@ -164,10 +164,14 @@ public class PlayerController : MonoBehaviourPun
     }
 
     [PunRPC]
-    void GiveKey(int keysToGive)
+    void GiveKey()
     {
-        //keyA.Play();
-        keys += keysToGive;
-        //GameUI.instance.UpdateKeysText(keys);
+        hasKey = true;
+    }
+
+    [PunRPC]
+    void Magic(GameObject magicType, int dmg)
+    {
+        //addcodelol
     }
 }

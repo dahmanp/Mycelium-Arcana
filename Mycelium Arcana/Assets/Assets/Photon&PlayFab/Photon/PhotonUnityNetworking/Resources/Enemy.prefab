@@ -110,7 +110,7 @@ MonoBehaviour:
   chaseRange: 5
   attackRange: 2
   playerDetectRate: 0.2
-  objectToSpawnOnDeath: 
+  objectToSpawnOnDeath: Health
   dmgA: {fileID: 0}
   damage: 5
   attackRate: 0.5

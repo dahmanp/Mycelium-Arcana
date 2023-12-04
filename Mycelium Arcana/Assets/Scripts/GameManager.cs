@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviourPun
 
         if (PhotonNetwork.PlayerList.Length == 1)
         {
-            Debug.Log("test1");
             totalKeys = 3;
             f.enabled = true;
             w.enabled = true;
@@ -52,14 +51,12 @@ public class GameManager : MonoBehaviourPun
         }
         else if (PhotonNetwork.PlayerList.Length == 2)
         {
-            Debug.Log("test2");
             totalKeys = 2;
             w.enabled = true;
             s.enabled = true;
         }
         else if (PhotonNetwork.PlayerList.Length == 3)
         {
-            Debug.Log("test3");
             totalKeys = 1;
             s.enabled = true;
         }

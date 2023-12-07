@@ -14,6 +14,7 @@ public class LoginRegister : MonoBehaviour
     public TMP_InputField passwordInput;
     public TextMeshProUGUI displayText;
     public UnityEvent onLoggedIn;
+    public GameObject menu;
 
     public string loginUserName;
 
@@ -70,6 +71,7 @@ public class LoginRegister : MonoBehaviour
                     onLoggedIn.Invoke();
 
                 playFabId = result.PlayFabId;
+                menu.SetActive(true);
             },
             error => SetDisplayText(error.ErrorMessage, Color.red)
         );

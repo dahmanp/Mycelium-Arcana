@@ -16,6 +16,10 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public GameObject startScreen;
     public GameObject creditsScreen;
     public GameObject settingsScreen;
+    public GameObject leaderboard1;
+    public GameObject leaderboard2;
+    public GameObject leaderboard3;
+    public GameObject bg;
 
     [Header("Main Screen")]
     public Button createRoomButton;
@@ -58,6 +62,9 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
         startScreen.SetActive(false);
         creditsScreen.SetActive(false);
         settingsScreen.SetActive(false);
+        leaderboard1.SetActive(false);
+        leaderboard2.SetActive(false);
+        leaderboard3.SetActive(false);
 
         screen.SetActive(true);
 
@@ -89,6 +96,19 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public void OnCreditsButton()
     {
         SetScreen(creditsScreen);
+    }
+
+    public void OnLeaderboardsButton()
+    {
+        SetScreen(leaderboard1);
+        Invoke("activation", 0.0001f);
+        bg.SetActive(false);
+    }
+
+    void activation()
+    {
+        leaderboard2.SetActive(true);
+        leaderboard3.SetActive(true);
     }
 
     public void OnCreateButton(TMP_InputField roomNameInput)

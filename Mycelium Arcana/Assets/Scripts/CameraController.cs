@@ -11,14 +11,17 @@ public class CameraController : MonoBehaviour
     //create mins and max for x and y and test to see if theyve been reached.
     void Update()
     {
-        // does the player exist?
         if (PlayerController.me != null && !PlayerController.me.dead)
         {
             Vector3 targetPos = PlayerController.me.transform.position;
+            //targetPos.x = Mathf.Clamp(targetPos.x, xmin, xmax);
+            //targetPos.y = Mathf.Clamp(targetPos.y, ymin, ymax);
             targetPos.z = -20;
-            //targetPos.x = Mathf.Clamp(transform.position.x, xmin, xmax);
-            //targetPos.y = Mathf.Clamp(transform.position.y, ymin, ymax);
             transform.position = targetPos;
+            if (targetPos.x < xmin)
+            {
+                targetPos.x = xmin;
+            }
         }
     }
 }

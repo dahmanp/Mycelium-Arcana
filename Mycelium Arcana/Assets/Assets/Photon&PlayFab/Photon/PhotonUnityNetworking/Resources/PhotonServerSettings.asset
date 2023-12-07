@@ -57,6 +57,13 @@ MonoBehaviour:
   - deactivate2
   - deactivate3
   - YESButton
+  - setText1
+  - setText2
+  - SyncClicks
+  - IncrementClicks
+  - AddClicks
+  - CompleteDialogue
+  - FinishDialogue
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

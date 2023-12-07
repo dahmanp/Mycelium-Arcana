@@ -10,12 +10,11 @@ public class NPCDialogue : MonoBehaviourPun
 {
     public GameObject trigger;
     public Button yesButton;
+    public GameObject temp;
     public GameObject bg;
     public GameObject nametag;
-    public GameObject text1;
-    public GameObject text2;
-    public GameObject text3;
-    public GameObject text4;
+    public TextMeshProUGUI textObj;
+    public GameObject jadeText;
 
     public int clicks;
     public int players;
@@ -24,79 +23,70 @@ public class NPCDialogue : MonoBehaviourPun
     [PunRPC]
     public void YESButton()
     {
-        yesButton.interactable = false;
-        clicks++;
+        if (photonView.IsMine)
+        {
+            yesButton.interactable = false;
+            photonView.RPC("AddClicks", RpcTarget.AllBuffered);
+        }
     }
+
+    [PunRPC]
+    void AddClicks()
+    {
+        clicks++;
+        if (clicks == players)
+        {
+            photonView.RPC("FinishDialogue", RpcTarget.AllBuffered);
+        }
+    }
+
+    [PunRPC]
+    void Start()
+    {
+        textObj.GetComponent<TextMeshProUGUI>().text = "";
+        players = PhotonNetwork.PlayerList.Length;
+    }
+
 
     [PunRPC]
     void OnTriggerEnter2D(Collider2D other)
     {
-        players = PhotonNetwork.PlayerList.Length;
+        trigger.GetComponent<BoxCollider2D>().enabled = false;
         if (other.gameObject.CompareTag("Holothurian"))
         {
             nametag.SetActive(true);
             bg.SetActive(true);
-            text1.SetActive(true);
-            Invoke("deactivate1", 2.0f);
-            Invoke("activate2", 2.0f);
-            Invoke("deactivate2", 2.0f);
-            Invoke("activate3", 2.0f);
-            if (clicks == players)
-            {
-                Debug.Log("urmom");
-                Invoke("deactivate3", 2.0f);
-                Invoke("activate4", 2.0f);
-                Invoke("deactivate4", 2.0f);
-                Invoke("deactivatebg", 2.0f);
-                Invoke("deactivatetag", 2.0f);
-                trigger.GetComponent<BoxCollider2D>().enabled = false;
-                //jade.Play();
-            }
+            StartCoroutine(DialogueStart());
         }
     }
 
-    void activate2()
+    void setText(string message)
     {
-        text2.SetActive(true);
+        textObj.text = message;
     }
 
-    void activate3()
+    IEnumerator DialogueStart()
     {
-        text3.SetActive(true);
+        setText("I'm glad you all are here!");
+        yield return new WaitForSeconds(2.0f);
+
+        setText("Please, purge the decay that plagues\n" + "our temple...");
+        yield return new WaitForSeconds(2.0f);
+
+        setText("Will you accept my quest?");
+        temp.SetActive(true);
     }
 
-    void activate4()
+    [PunRPC]
+    void FinishDialogue()
     {
-        text4.SetActive(true);
+        setText("Thank you, and please be careful...");
+        temp.SetActive(false);
+        Invoke("deactivation", 2.0f);
     }
 
-    void deactivate1()
+    void deactivation()
     {
-        text1.SetActive(false);
-    }
-
-    void deactivate2()
-    {
-        text2.SetActive(false);
-    }
-
-    void deactivate3()
-    {
-        text3.SetActive(false);
-    }
-
-    void deactivate4()
-    {
-        text4.SetActive(false);
-    }
-
-    void deactivatebg()
-    {
-        bg.SetActive(false);
-    }
-
-    void deactivatetag()
-    {
-        nametag.SetActive(false);
+        jadeText.SetActive(false);
     }
 }

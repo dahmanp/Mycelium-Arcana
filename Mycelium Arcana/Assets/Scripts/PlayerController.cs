@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviourPun
     public int curHp;
     public int maxHp;
     public bool dead;
+    public float startTime;
+    public float timeTaken;
 
     [Header("Attack")]
     public int damage;
@@ -72,28 +74,15 @@ public class PlayerController : MonoBehaviourPun
             Attack();
 
         float mouseX = (Screen.width / 2) - Input.mousePosition.x;
-        if (mouseX < 0)
-        {
-            //weaponAnim.transform.parent.localScale = new Vector3(3, 3, 3);
-            //transform.localScale = new Vector3(-3, 3, 3);
-        }
-        else
-        {
-            //weaponAnim.transform.parent.localScale = new Vector3(-3, 3, 3);
-            //transform.localScale = new Vector3(3, 3, 3);
-        }
     }
 
     void Move()
     {
-        // get the horizontal and vertical inputs
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
-        // apply that to our velocity
         rig.velocity = new Vector2(x, y) * moveSpeed;
     }
 
-    // melee attacks towards the mouse
     void Attack()
     {
         lastAttackTime = Time.time;
@@ -172,6 +161,6 @@ public class PlayerController : MonoBehaviourPun
     [PunRPC]
     void Magic(GameObject magicType, int dmg)
     {
-        //addcodelol
+        
     }
 }

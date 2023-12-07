@@ -156,6 +156,8 @@ MonoBehaviour:
   curHp: 100
   maxHp: 100
   dead: 0
+  startTime: 0
+  timeTaken: 0
   damage: 100
   attackRange: 3
   attackRate: 0.5

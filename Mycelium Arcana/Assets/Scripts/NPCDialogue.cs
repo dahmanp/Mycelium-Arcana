@@ -23,11 +23,8 @@ public class NPCDialogue : MonoBehaviourPun
     [PunRPC]
     public void YESButton()
     {
-        if (photonView.IsMine)
-        {
-            yesButton.interactable = false;
-            photonView.RPC("AddClicks", RpcTarget.AllBuffered);
-        }
+        yesButton.interactable = false;
+        photonView.RPC("AddClicks", RpcTarget.AllBuffered);
     }
 
     [PunRPC]

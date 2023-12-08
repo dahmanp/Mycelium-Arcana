@@ -10,14 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6643849573733353342}
   - component: {fileID: 4709155248636392775}
-  - component: {fileID: 6547824351385558428}
   - component: {fileID: 7218776081442326533}
   - component: {fileID: 5505238871336074256}
-  - component: {fileID: -2969312494995496453}
   - component: {fileID: 4289742955004739435}
+  - component: {fileID: 4316716502231219373}
+  - component: {fileID: 9182102144025736629}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,34 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6547824351385558428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8499540641002150362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d8a8090070279e47a94d0aa5ef9636d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _particleSystem: {fileID: 0}
-  enemyName: Boss
-  moveSpeed: 0.3
-  curHp: 200
-  maxHp: 200
-  chaseRange: 5
-  attackRange: 2
-  playerDetectRate: 0.2
-  objectToSpawnOnDeath: 
-  dmgA: {fileID: 0}
-  damage: 10
-  attackRate: 0.2
-  healthBar: {fileID: 8419513343417500678}
-  sr: {fileID: 4709155248636392775}
-  rig: {fileID: 4289742955004739435}
-  isdead: 0
 --- !u!114 &7218776081442326533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,53 +129,6 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!60 &-2969312494995496453
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8499540641002150362}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.22, y: 2.22}
-    newSize: {x: 2.22, y: 2.22}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.11261261, y: 0.076576576}
-      - {x: 0.08558559, y: 0.14864865}
-      - {x: 0.2747748, y: 0.43693694}
-      - {x: 0.2747748, y: 0.5}
-      - {x: 0.14864865, y: 0.5}
-      - {x: 0.0945946, y: 0.481982}
-      - {x: 0.03153153, y: 0.40990993}
-      - {x: -0.022522524, y: 0.41891894}
-      - {x: -0.13963965, y: 0.5}
-      - {x: -0.25675675, y: 0.5}
-      - {x: -0.2747748, y: 0.481982}
-      - {x: -0.2747748, y: 0.472973}
-      - {x: -0.16666667, y: 0.2747748}
-      - {x: -0.08558559, y: 0.13963965}
-      - {x: -0.15765767, y: -0.022522524}
-      - {x: -0.15765767, y: -0.3018018}
-      - {x: -0.1846847, y: -0.44594595}
-      - {x: -0.17567568, y: -0.5}
-      - {x: 0.17567568, y: -0.5}
-      - {x: 0.1846847, y: -0.44594595}
-      - {x: 0.14864865, y: -0.3018018}
-      - {x: 0.15765767, y: -0.13963965}
 --- !u!50 &4289742955004739435
 Rigidbody2D:
   serializedVersion: 4
@@ -225,6 +150,60 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4316716502231219373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8499540641002150362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea4ec938d1c1ac48b6a364ef84663ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 0}
+  enemyName: Siles
+  moveSpeed: 1
+  curHp: 500
+  maxHp: 500
+  chaseRange: 4
+  attackRange: 2
+  playerDetectRate: 1
+  objectToSpawnOnDeath: Health
+  dmgA: {fileID: 0}
+  damage: 20
+  attackRate: 1
+  healthBar: {fileID: 8419513343417500678}
+  sr: {fileID: 4709155248636392775}
+  rig: {fileID: 4289742955004739435}
+  isdead: 0
+--- !u!61 &9182102144025736629
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8499540641002150362}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00006312132, y: -0.19175994}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.22, y: 2.22}
+    newSize: {x: 2.22, y: 2.22}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.54417634, y: 1.6750925}
+  m_EdgeRadius: 0
 --- !u!1001 &775541004187504881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -306,7 +285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4466398204597060520, guid: 12569f067ef77df4299f05196812883a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.3762417
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4466398204597060520, guid: 12569f067ef77df4299f05196812883a, type: 3}
       propertyPath: m_LocalRotation.w

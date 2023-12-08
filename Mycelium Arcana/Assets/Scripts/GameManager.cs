@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 using Photon.Pun;
 using System.Linq;
 
@@ -26,12 +29,20 @@ public class GameManager : MonoBehaviourPun
 
     public GameObject boss;
     public GameObject winBackground;
+    public GameObject winBackgroundBlank;
+    public GameObject winColor;
     public int totalKeys;
+    public GameObject bossBlock;
+    public bool bossDied = false;
+
+    public int clicks;
+    public Button yesButton;
 
     // instance
     public static GameManager instance;
     void Awake()
     {
+        boss.SetActive(false);
         instance = this;
     }
 
@@ -106,23 +117,44 @@ public class GameManager : MonoBehaviourPun
     {
         if (totalKeys == 4)
         {
-            PhotonNetwork.LoadLevel("Boss");
+            boss.SetActive(true);
+            bossBlock.SetActive(false);
         }
-
     }
 
     public void SetWinText()
     {
-        winBackground.gameObject.SetActive(true);
+        winBackground.SetActive(true);
+        winColor.SetActive(true);
     }
 
     [PunRPC]
-    void WinGame()
+    public void WinGame()
     {
-        if (boss.GetComponent<Enemy>().isdead == true)
+        if (bossDied == true)
         {
-            SetWinText();
-            Invoke("GoBackToMenu", 3);
+            bossDied = false;
+            Debug.Log("Works");
+            winBackgroundBlank.SetActive(true);
+            Invoke("SetWinText", 1.0f);
+            //Invoke("GoBackToMenu", 5.0f);
+        }
+    }
+
+    [PunRPC]
+    public void MenuButtonTime()
+    {
+        yesButton.interactable = false;
+        photonView.RPC("AddClicks", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    void AddClicks()
+    {
+        clicks++;
+        if (clicks == playersInGame)
+        {
+            PhotonNetwork.LoadLevel("Menu");
         }
     }
 }

@@ -73,6 +73,7 @@ public class Boss : MonoBehaviourPun
 
     void Attack()
     {
+        Debug.Log("boss attack");
         lastAttackTime = Time.time;
         targetPlayer.photonView.RPC("TakeDamage", targetPlayer.photonPlayer, damage);
 
@@ -130,6 +131,8 @@ public class Boss : MonoBehaviourPun
 
     void Die()
     {
+        GameManager.instance.bossDied = true;
+        GameManager.instance.WinGame();
         isdead = true;
         if (objectToSpawnOnDeath != string.Empty)
             PhotonNetwork.Instantiate(objectToSpawnOnDeath, transform.position, Quaternion.identity);

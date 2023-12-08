@@ -108,12 +108,12 @@ MonoBehaviour:
   curHp: 50
   maxHp: 50
   chaseRange: 5
-  attackRange: 2
+  attackRange: 1
   playerDetectRate: 0.2
   objectToSpawnOnDeath: Health
   dmgA: {fileID: 0}
   damage: 5
-  attackRate: 0.5
+  attackRate: 1
   healthBar: {fileID: 8419513343417500678}
   sr: {fileID: 4709155248636392775}
   rig: {fileID: 4289742955004739435}

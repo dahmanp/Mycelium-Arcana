@@ -9,6 +9,7 @@ TagManager:
   - Holothurian
   - Velkivon
   - Enemy
+  - Boss
   layers:
   - Default
   - TransparentFX

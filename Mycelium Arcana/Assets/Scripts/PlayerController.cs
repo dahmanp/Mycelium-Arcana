@@ -92,26 +92,20 @@ public class PlayerController : MonoBehaviourPun
         //swordA.Play();
         if (hit.collider != null && hit.collider.gameObject.CompareTag("Enemy"))
         {
-            //Debug.Log("ytesting");
             Enemy enemy = hit.collider.GetComponent<Enemy>();
             enemy.photonView.RPC("TakeDamage", RpcTarget.MasterClient, damage);
             totalDmgDealt += damage;
-            //below line doesnt work, maybe it has to do with the fact that its not as fast as id0
-            if (enemy.isdead == true)
+            if (enemy.curHp >= 0 || enemy.isdead == true)
             {
-                Debug.Log("ya hehe");
                 enemiesKilled++;
             }
         } else if (hit.collider != null && hit.collider.gameObject.CompareTag("Boss"))
         {
-            //Debug.Log("ytesting");
             Boss boss = hit.collider.GetComponent<Boss>();
             boss.photonView.RPC("TakeDamage", RpcTarget.MasterClient, damage);
             totalDmgDealt += damage;
-            //below line doesnt work, maybe it has to do with the fact that its not as fast as id0
-            if (boss.isdead == true)
+            if (boss.curHp >= 0 || boss.isdead == true)
             {
-                Debug.Log("ya hehe");
                 enemiesKilled++;
             }
         }
@@ -136,6 +130,12 @@ public class PlayerController : MonoBehaviourPun
                 sr.color = Color.white;
             }
         }
+    }
+
+    public void submitDMGAmt()
+    {
+        int temptime = -Mathf.RoundToInt(totalDmgDealt * 1000.0f);
+        Leaderboard2.instance.SetLeaderboardEntry(temptime);
     }
 
     void Die()

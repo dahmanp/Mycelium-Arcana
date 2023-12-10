@@ -14,7 +14,6 @@ public class Leaderboard1 : MonoBehaviour
     {
         if (instance == null)
         {
-            Debug.Log("test");
             instance = this;
             DontDestroyOnLoad(gameObject);
         }

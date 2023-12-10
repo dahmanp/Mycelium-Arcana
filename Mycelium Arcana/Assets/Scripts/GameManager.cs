@@ -134,10 +134,11 @@ public class GameManager : MonoBehaviourPun
         if (bossDied == true)
         {
             bossDied = false;
-            Debug.Log("Works");
             winBackgroundBlank.SetActive(true);
             Invoke("SetWinText", 1.0f);
-            //Invoke("GoBackToMenu", 5.0f);
+            foreach (PlayerController player in players) {
+                player.submitDMGAmt();
+            }
         }
     }
 

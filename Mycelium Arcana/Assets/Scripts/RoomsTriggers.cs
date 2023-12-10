@@ -27,7 +27,6 @@ public class RoomsTriggers: MonoBehaviourPun
                 other.gameObject.transform.position = spawns[2].transform.position;
                 other.gameObject.GetComponent<PlayerController>().timeTaken = Time.time - other.gameObject.GetComponent<PlayerController>().startTime;
                 time = other.gameObject.GetComponent<PlayerController>().timeTaken;
-                //PlayerPrefs.SetFloat("timeTaken", time);
                 int temptime = -Mathf.RoundToInt(time * 1000.0f);
                 Leaderboard1.instance.SetLeaderboardEntry(temptime);
             }

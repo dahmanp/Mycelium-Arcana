@@ -40,6 +40,8 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     void Start()
     {
+        leaderboard2.SetActive(true);
+        leaderboard3.SetActive(true);
         createRoomButton.interactable = false;
         findRoomButton.interactable = false;
         // enable the cursor since we hide it when we play the game
@@ -80,21 +82,25 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     public void OnCreateRoomButton()
     {
+        bg.SetActive(true);
         SetScreen(createRoomScreen);
     }
 
     public void OnFindRoomButton()
     {
+        bg.SetActive(true);
         SetScreen(lobbyBrowserScreen);
     }
 
     public void ToMainScreen()
     {
+        bg.SetActive(true);
         SetScreen(mainScreen);
     }
 
     public void OnCreditsButton()
     {
+        bg.SetActive(true);
         SetScreen(creditsScreen);
     }
 
@@ -118,6 +124,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     public void OnSettingsButton()
     {
+        bg.SetActive(true);
         SetScreen(settingsScreen);
     }
 

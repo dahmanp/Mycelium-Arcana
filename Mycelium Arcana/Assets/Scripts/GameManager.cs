@@ -9,6 +9,10 @@ using System.Linq;
 
 public class GameManager : MonoBehaviourPun
 {
+    public AudioSource normMusic;
+    public AudioSource bossMusic;
+    public AudioSource winMusic;
+
     [Header("Players")]
     public string summer;
     public string fall;
@@ -117,6 +121,9 @@ public class GameManager : MonoBehaviourPun
     {
         if (totalKeys == 4)
         {
+            normMusic.Stop();
+            bossMusic.Play();
+            totalKeys = 0;
             boss.SetActive(true);
             bossBlock.SetActive(false);
         }
@@ -133,6 +140,8 @@ public class GameManager : MonoBehaviourPun
     {
         if (bossDied == true)
         {
+            bossMusic.Stop();
+            winMusic.Play();
             bossDied = false;
             winBackgroundBlank.SetActive(true);
             Invoke("SetWinText", 1.0f);

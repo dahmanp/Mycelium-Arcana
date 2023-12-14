@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -3321770611406946816}
   - component: {fileID: -2521516026614262842}
   - component: {fileID: -9094212947229839842}
+  - component: {fileID: 7612340268903573115}
   m_Layer: 0
   m_Name: Avem
   m_TagString: Avem
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 589700531
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f4d4d25865c979f4086822c349ab4090, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cec32275addd3cc4c9f77b345f505294, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -214,6 +215,26 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!95 &7612340268903573115
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994666342232070812}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46f0bc4c516a5af43a9e1f88c752d508, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &7929594236691358752
 PrefabInstance:
   m_ObjectHideFlags: 0

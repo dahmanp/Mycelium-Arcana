@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -1198102642887015278}
   - component: {fileID: -734420950445977098}
   - component: {fileID: 6297426351144645000}
+  - component: {fileID: 924807893851827421}
   m_Layer: 0
   m_Name: Holothurian
   m_TagString: Holothurian
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 589700531
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 644d8c253438e304f84367ae979c4b0b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 971c53da2f9116a4b8c284d5e6e3b5e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -214,6 +215,26 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!95 &924807893851827421
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9170113167326984993}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b7d30b31d88f32b4a92ba69944147470, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &218837874479754165
 PrefabInstance:
   m_ObjectHideFlags: 0

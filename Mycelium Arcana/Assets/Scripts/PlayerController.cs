@@ -45,6 +45,10 @@ public class PlayerController : MonoBehaviourPun
 
     public HeaderInfo headerInfo;
 
+    //Animation
+    private Animator anim;
+    Vector2 movement;
+
     // local player
     public static PlayerController me;
 
@@ -65,6 +69,11 @@ public class PlayerController : MonoBehaviourPun
         headerInfo.Initialize(player.NickName, maxHp);
     }
 
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     void Update()
     {
         if (!photonView.IsMine)
@@ -74,6 +83,8 @@ public class PlayerController : MonoBehaviourPun
             Attack();
 
         float mouseX = (Screen.width / 2) - Input.mousePosition.x;
+
+        
     }
 
     void Move()
@@ -81,10 +92,20 @@ public class PlayerController : MonoBehaviourPun
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         rig.velocity = new Vector2(x, y) * moveSpeed;
+
+        //animation
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        anim.SetFloat("Horizontal", movement.x);
+        anim.SetFloat("Vertical", movement.y);
+        anim.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     void Attack()
     {
+        anim.SetTrigger("Attack");
+
         lastAttackTime = Time.time;
         Vector3 dir = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
         RaycastHit2D hit = Physics2D.Raycast(transform.position + dir, dir, attackRange);

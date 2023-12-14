@@ -20,6 +20,9 @@ public class NPCDialogue : MonoBehaviourPun
     public int players;
     public GameObject jade;
 
+    private Animator anim;
+
+
     [PunRPC]
     public void YESButton()
     {
@@ -42,6 +45,8 @@ public class NPCDialogue : MonoBehaviourPun
     {
         textObj.GetComponent<TextMeshProUGUI>().text = "";
         players = PhotonNetwork.PlayerList.Length;
+
+        anim = GetComponent<Animator>();
     }
 
 
@@ -80,6 +85,8 @@ public class NPCDialogue : MonoBehaviourPun
         setText("Thank you, and please be careful...");
         temp.SetActive(false);
         Invoke("deactivation", 2.0f);
+
+        anim.SetTrigger("Finish");
     }
 
     void deactivation()

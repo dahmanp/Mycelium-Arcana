@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1722211527855423818}
   - component: {fileID: -1129507751599942229}
   - component: {fileID: -1631767809367437821}
+  - component: {fileID: 2201423749537010717}
   m_Layer: 0
   m_Name: Etori
   m_TagString: Etori
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 589700531
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ab00b0004255dee479e2bb472ec834ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd8d0cb5e9f200b438fa1db2df8ee843, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -214,6 +215,26 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!95 &2201423749537010717
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121249803537271800}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 68af70807d21ab24ea655f674c72e9a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &4939807760096633277
 PrefabInstance:
   m_ObjectHideFlags: 0

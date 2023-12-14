@@ -20,15 +20,23 @@ public class KeyTrigger : MonoBehaviourPun
     [PunRPC]
     void OnTriggerEnter2D(Collider2D other)
     {
-        SpriteRenderer k = key.GetComponent<SpriteRenderer>();
+        //SpriteRenderer k = key.GetComponent<SpriteRenderer>();
         if (other.gameObject.CompareTag(season))
         {
             if (other.gameObject.GetComponent<PlayerController>().instance.hasKey == true)
             {
-                k.enabled = true;
-                GameManager.instance.totalKeys++;
+                //k.enabled = true;
+                photonView.RPC("increment", RpcTarget.AllBuffered);
                 other.gameObject.GetComponent<PlayerController>().instance.hasKey = false;
             }
         }
+    }
+
+    [PunRPC]
+    void increment()
+    {
+        SpriteRenderer k = key.GetComponent<SpriteRenderer>();
+        k.enabled = true;
+        GameManager.instance.totalKeys++;
     }
 }

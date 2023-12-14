@@ -191,6 +191,7 @@ public class PlayerController : MonoBehaviourPun
     [PunRPC]
     void GiveKey()
     {
+        //Debug.Log("KEY TIME");
         hasKey = true;
     }
 

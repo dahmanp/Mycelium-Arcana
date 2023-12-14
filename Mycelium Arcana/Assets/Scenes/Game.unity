@@ -573,7 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967d8bc3d7958a848b56e6b86ac34c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzle: {fileID: 1981190405}
+  puzzle: {fileID: 1481565234}
   trigger: {fileID: 18532554}
   blockade: {fileID: 311205477}
   help: {fileID: 1515591922}
@@ -6998,7 +6998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967d8bc3d7958a848b56e6b86ac34c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzle: {fileID: 2039553970}
+  puzzle: {fileID: 474303420}
   trigger: {fileID: 367270221}
   blockade: {fileID: 1052395804}
   help: {fileID: 1515591922}
@@ -9776,6 +9776,7 @@ GameObject:
   - component: {fileID: 548026294}
   - component: {fileID: 548026293}
   - component: {fileID: 548026292}
+  - component: {fileID: 548026295}
   m_Layer: 0
   m_Name: Winter Key Trigger
   m_TagString: Untagged
@@ -9891,6 +9892,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &548026295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548026290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 16
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &551209985
 GameObject:
   m_ObjectHideFlags: 0
@@ -13434,6 +13457,7 @@ GameObject:
   - component: {fileID: 770012956}
   - component: {fileID: 770012955}
   - component: {fileID: 770012954}
+  - component: {fileID: 770012957}
   m_Layer: 0
   m_Name: Spring Key Trigger
   m_TagString: Untagged
@@ -13549,6 +13573,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &770012957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770012952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 17
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &777420680
 GameObject:
   m_ObjectHideFlags: 0
@@ -28394,7 +28440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967d8bc3d7958a848b56e6b86ac34c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzle: {fileID: 2006020610}
+  puzzle: {fileID: 309150989}
   trigger: {fileID: 1698781523}
   blockade: {fileID: 33679771}
   help: {fileID: 1515591922}
@@ -30572,6 +30618,7 @@ GameObject:
   - component: {fileID: 1777196003}
   - component: {fileID: 1777196002}
   - component: {fileID: 1777196001}
+  - component: {fileID: 1777196004}
   m_Layer: 0
   m_Name: Summer Key Trigger
   m_TagString: Untagged
@@ -30687,6 +30734,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1777196004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777195999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 15
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1784556565
 GameObject:
   m_ObjectHideFlags: 0
@@ -37502,6 +37571,7 @@ GameObject:
   - component: {fileID: 2146642539}
   - component: {fileID: 2146642538}
   - component: {fileID: 2146642537}
+  - component: {fileID: 2146642540}
   m_Layer: 0
   m_Name: Fall Key Trigger
   m_TagString: Untagged
@@ -37617,6 +37687,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+--- !u!114 &2146642540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146642535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 14
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+=======
+>>>>>>> 8e4c60c786983aebb053957e536d3039bbd99ea4
+>>>>>>> Stashed changes
 --- !u!1001 &4583376994529781633
 PrefabInstance:
   m_ObjectHideFlags: 0

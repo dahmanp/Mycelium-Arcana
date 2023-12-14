@@ -37,7 +37,7 @@ public class PicCheck : MonoBehaviour
         puzzleComplete = Acheck && Bcheck && Ccheck && Dcheck;
         if (puzzleComplete == true && keyUnlocked != true)
         {
-            key.SetActive(true);
+            //key.SetActive(true);
             Invoke("deactivate", 2.0f);
             keyUnlocked = true;
         }

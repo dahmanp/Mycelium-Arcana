@@ -159,14 +159,14 @@ MonoBehaviour:
   dead: 0
   startTime: 0
   timeTaken: 0
-  damage: 100
+  damage: 50
   attackRange: 3
   attackRate: 0.5
   enemiesKilled: 0
   totalDmgDealt: 0
   rig: {fileID: 7179079577246410834}
   sr: {fileID: 8936227829903345784}
-  hasKey: 0
+  hasKey: 1
   coinA: {fileID: 0}
   keyA: {fileID: 0}
   healthA: {fileID: 0}

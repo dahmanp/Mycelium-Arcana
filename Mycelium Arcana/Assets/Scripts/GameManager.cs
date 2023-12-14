@@ -136,6 +136,14 @@ public class GameManager : MonoBehaviourPun
     }
 
     [PunRPC]
+    void trueWin()
+    {
+        Debug.Log("Happening");
+        winBackgroundBlank.SetActive(true);
+        Invoke("SetWinText", 1.0f);
+    }
+
+    [PunRPC]
     public void WinGame()
     {
         if (bossDied == true)
@@ -143,8 +151,7 @@ public class GameManager : MonoBehaviourPun
             bossMusic.Stop();
             winMusic.Play();
             bossDied = false;
-            winBackgroundBlank.SetActive(true);
-            Invoke("SetWinText", 1.0f);
+            photonView.RPC("trueWin", RpcTarget.All);
             foreach (PlayerController player in players) {
                 player.submitDMGAmt();
             }
